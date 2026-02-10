@@ -51,9 +51,9 @@ class DummyImage:
         # get args
         width, height = get_size(size)
         text = request.args.get("text", "%dx%d" % (width, height))
-        zoom_text = get_bool(request.args.get('zoom', 'True'))
-        draw_border = get_bool(request.args.get('border', 'True'))
-        debug = get_bool(request.args.get('debug', 'False'))
+        zoom_text = get_bool(request.args.get("zoom", "True"))
+        draw_border = get_bool(request.args.get("border", "True"))
+        debug = get_bool(request.args.get("debug", "False"))
 
         bg_color = get_color(request.args.get("bg_color"), "BG")
         text_color = get_color(request.args.get("text_color"), "TEXT")
@@ -69,10 +69,18 @@ class DummyImage:
             img_fraction = 0.90  # portion of image width you want text width to be
 
             font = ImageFont.truetype(font_path, font_size)
+            # Using getbbox() for Pillow 10+ compatibility
+            bbox = font.getbbox(text)
+            text_width, text_height = bbox[2] - bbox[0], bbox[3] - bbox[1]
             while (
-                font.getsize(text)[0] < img_fraction * img.size[0]
-                and font.getsize(text)[1] < img_fraction * img.size[1]
+                text_width < img_fraction * img.size[0]
+                and text_height < img_fraction * img.size[1]
             ):
+                # iterate until the text size is just larger than the criteria
+                font_size += 1
+                font = ImageFont.truetype(font_path, font_size)
+                bbox = font.getbbox(text)
+                text_width, text_height = bbox[2] - bbox[0], bbox[3] - bbox[1]
                 # iterate until the text size is just larger than the criteria
                 font_size += 1
                 font = ImageFont.truetype(font_path, font_size)
@@ -80,7 +88,9 @@ class DummyImage:
             font_size = int(request.args.get("fontsize", font_size))
             font = ImageFont.truetype(font_path, font_size)
 
-        render_width, render_height = font.getsize(text)
+        # Using getbbox() for Pillow 10+ compatibility
+        bbox = font.getbbox(text)
+        render_width, render_height = bbox[2] - bbox[0], bbox[3] - bbox[1]
 
         draw.text(
             ((width - render_width) / 2, (height - render_height) / 2),
@@ -133,6 +143,10 @@ def get_size(size):
             break
 
     return width, height
+
+
+# Backward compatibility alias for tests
+_get_size = get_size
 
 
 def get_color(value, type):
