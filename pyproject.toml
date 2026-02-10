@@ -1,0 +1,57 @@
+[project]
+name = "flask_dummyimage"
+version = "0.1.0"
+description = "Flask App to generate placeholder images"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT license"}
+authors = [
+    {name = "Pyunghyuk Yoo", email = "yoophi@gmail.com"}
+]
+keywords = ["flask_dummyimage", "placeholder", "images"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+dependencies = [
+    "Click>=7.0",
+    "Flask==3.1.2",
+    "Pillow>=11.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "coverage>=7.0.0",
+    "flake8>=7.0.0",
+    "tox>=4.0.0",
+    "Sphinx>=1.8.5",
+    "twine>=1.14.0",
+    "watchdog>=0.9.0",
+]
+
+[project.scripts]
+flask_dummyimage = "flask_dummyimage.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yoophi/flask_dummyimage"
+Repository = "https://github.com/yoophi/flask_dummyimage"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["flask_dummyimage*"]
