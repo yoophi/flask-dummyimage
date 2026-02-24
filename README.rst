@@ -1,37 +1,17 @@
 =================
-Flask DummyImages
+Flask-DummyImage
 =================
 
-
-.. image:: https://img.shields.io/pypi/v/flask_dummyimage.svg
-        :target: https://pypi.python.org/pypi/flask_dummyimage
-
-.. image:: https://img.shields.io/travis/yoophi/flask_dummyimage.svg
-        :target: https://travis-ci.com/yoophi/flask_dummyimage
-
-.. image:: https://readthedocs.org/projects/flask-dummyimage/badge/?version=latest
-        :target: https://flask-dummyimage.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
-
-
-
-
-Flask App to generate placeholder images
-
+Placeholder 이미지를 생성하는 Flask 확장입니다.
+개발 및 디자인 프로토타이핑 시 원하는 크기, 색상, 텍스트의 더미 이미지를 즉시 만들 수 있습니다.
 
 * Free software: MIT license
-* Documentation: https://flask-dummyimage.readthedocs.io.
-
+* Repository: https://github.com/yoophi/flask_dummyimage
 
 Features
 --------
 
-* TODO
-
-Credits
--------
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+* 원하는 크기의 placeholder 이미지 생성 (정방형 또는 가로/세로 지정)
+* 배경색, 텍스트색, 테두리색 커스터마이징
+* 텍스트 자동 확대(zoom) 기능
+* Flask 확장으로 간편하게 통합

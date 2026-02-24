@@ -47,8 +47,8 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "Flask DummyImages"
-copyright = "2021, Pyunghyuk Yoo"
+project = "Flask-DummyImage"
+copyright = "2021-2025, Pyunghyuk Yoo"
 author = "Pyunghyuk Yoo"
 
 # The version info for the project you're documenting, acts as replacement
@@ -65,7 +65,7 @@ release = flask_dummyimage.__version__
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -95,7 +95,7 @@ html_theme = "alabaster"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
+html_static_path = []
 
 
 # -- Options for HTMLHelp output ---------------------------------------
@@ -128,7 +128,7 @@ latex_documents = [
     (
         master_doc,
         "flask_dummyimage.tex",
-        "Flask DummyImages Documentation",
+        "Flask-DummyImage Documentation",
         "Pyunghyuk Yoo",
         "manual",
     ),
@@ -140,7 +140,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, "flask_dummyimage", "Flask DummyImages Documentation", [author], 1)
+    (master_doc, "flask_dummyimage", "Flask-DummyImage Documentation", [author], 1)
 ]
 
 
@@ -153,10 +153,10 @@ texinfo_documents = [
     (
         master_doc,
         "flask_dummyimage",
-        "Flask DummyImages Documentation",
+        "Flask-DummyImage Documentation",
         author,
         "flask_dummyimage",
-        "One line description of project.",
+        "Flask App to generate placeholder images.",
         "Miscellaneous",
     ),
 ]

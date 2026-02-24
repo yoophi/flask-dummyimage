@@ -4,48 +4,28 @@
 Installation
 ============
 
+Requirements
+------------
 
-Stable release
---------------
-
-To install Flask DummyImages, run this command in your terminal:
-
-.. code-block:: console
-
-    $ pip install flask_dummyimage
-
-This is the preferred method to install Flask DummyImages, as it will always install the most recent stable release.
-
-If you don't have `pip`_ installed, this `Python installation guide`_ can guide
-you through the process.
-
-.. _pip: https://pip.pypa.io
-.. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
-
+* Python >= 3.9
+* `uv <https://docs.astral.sh/uv/>`_ (패키지 매니저)
 
 From sources
 ------------
 
-The sources for Flask DummyImages can be downloaded from the `Github repo`_.
+The sources for Flask-DummyImage can be downloaded from the `Github repo`_.
 
-You can either clone the public repository:
-
-.. code-block:: console
-
-    $ git clone git://github.com/yoophi/flask_dummyimage
-
-Or download the `tarball`_:
+Clone the repository:
 
 .. code-block:: console
 
-    $ curl -OJL https://github.com/yoophi/flask_dummyimage/tarball/master
+    $ git clone https://github.com/yoophi/flask_dummyimage
+    $ cd flask_dummyimage
 
-Once you have a copy of the source, you can install it with:
+Install dependencies with uv:
 
 .. code-block:: console
 
-    $ python setup.py install
-
+    $ uv sync
 
 .. _Github repo: https://github.com/yoophi/flask_dummyimage
-.. _tarball: https://github.com/yoophi/flask_dummyimage/tarball/master
