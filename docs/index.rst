@@ -1,5 +1,5 @@
-Welcome to Flask DummyImages's documentation!
-======================================
+Welcome to Flask-DummyImage's documentation!
+=============================================
 
 .. toctree::
    :maxdepth: 2
@@ -8,7 +8,6 @@ Welcome to Flask DummyImages's documentation!
    readme
    installation
    usage
-   modules
    contributing
    authors
    history
