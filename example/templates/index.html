@@ -2,20 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dummy Images</title>
+    <title>Flask-DummyImage Examples</title>
+    <style>
+        body { font-family: sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1, h2 { color: #333; }
+        section { margin-bottom: 30px; }
+        .images img { margin: 4px; vertical-align: middle; }
+        code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+    </style>
 </head>
 <body>
 
-<h1>DummyImage generator</h1>
+<h1>Flask-DummyImage Examples</h1>
 
-<div><img src="{{ url_for('dummyimage.images', size='200x200') }}"/><img
-        src="{{ url_for('dummyimage.images', size='200x200', zoom='false') }}"/>
-</div>
-<div><img src="{{ url_for('dummyimage.images', size='400x200', bg_color='pink') }}"/><img
-        src="{{ url_for('dummyimage.images', size='400x200', text_color='blue', border='0' ) }}"/></div>
-<div>{% for c in 'Hello!' -%}
-    <img src="{{ url_for('dummyimage.images', size='100', text=c, bg_color='!ccc', zoom='false', fontsize=40) }}"/>
-{%- endfor %}</div>
+<section>
+    <h2>Basic: Default &amp; Custom Sizes</h2>
+    <div class="images">
+        <img src="{{ url_for('dummyimage.images', size='200x200') }}" alt="200x200"/>
+        <img src="{{ url_for('dummyimage.images', size='300x150') }}" alt="300x150"/>
+        <img src="{{ url_for('dummyimage.images', size='100') }}" alt="100x100 square"/>
+    </div>
+</section>
+
+<section>
+    <h2>Zoom: On vs Off</h2>
+    <p><code>zoom=true</code> (default) auto-fits text size to the image.</p>
+    <div class="images">
+        <img src="{{ url_for('dummyimage.images', size='200x200') }}" alt="zoom on"/>
+        <img src="{{ url_for('dummyimage.images', size='200x200', zoom='false') }}" alt="zoom off"/>
+        <img src="{{ url_for('dummyimage.images', size='200x200', zoom='false', fontsize=40) }}" alt="zoom off, fontsize=40"/>
+    </div>
+</section>
+
+<section>
+    <h2>Custom Colors</h2>
+    <p>Color name (<code>bg_color=pink</code>) or hex with <code>!</code> prefix (<code>bg_color=!336699</code>)</p>
+    <div class="images">
+        <img src="{{ url_for('dummyimage.images', size='200x120', bg_color='pink', text_color='darkred') }}" alt="pink bg"/>
+        <img src="{{ url_for('dummyimage.images', size='200x120', bg_color='!336699', text_color='white') }}" alt="hex bg"/>
+        <img src="{{ url_for('dummyimage.images', size='200x120', bg_color='!ccc') }}" alt="short hex bg"/>
+    </div>
+</section>
+
+<section>
+    <h2>Custom Text</h2>
+    <div class="images">
+        <img src="{{ url_for('dummyimage.images', size='300x100', text='Hello World') }}" alt="custom text"/>
+        <img src="{{ url_for('dummyimage.images', size='200x100', text='Placeholder') }}" alt="placeholder text"/>
+    </div>
+</section>
+
+<section>
+    <h2>Border Options</h2>
+    <p><code>border=true</code> (default), <code>border_color</code> for custom border color.</p>
+    <div class="images">
+        <img src="{{ url_for('dummyimage.images', size='150x150') }}" alt="default border"/>
+        <img src="{{ url_for('dummyimage.images', size='150x150', border='0') }}" alt="no border"/>
+        <img src="{{ url_for('dummyimage.images', size='150x150', border_color='red') }}" alt="red border"/>
+        <img src="{{ url_for('dummyimage.images', size='150x150', border_color='!0066FF') }}" alt="blue hex border"/>
+    </div>
+</section>
+
+<section>
+    <h2>Debug Mode</h2>
+    <p><code>debug=true</code> shows the text bounding box in red.</p>
+    <div class="images">
+        <img src="{{ url_for('dummyimage.images', size='200x200', debug='true') }}" alt="debug mode"/>
+        <img src="{{ url_for('dummyimage.images', size='300x150', debug='true', text='Debug') }}" alt="debug with text"/>
+    </div>
+</section>
+
+<section>
+    <h2>Spelling Out Characters</h2>
+    <div class="images">
+        {% for c in 'Hello!' -%}
+            <img src="{{ url_for('dummyimage.images', size='80', text=c, bg_color='!ccc', zoom='false', fontsize=40) }}" alt="{{ c }}"/>
+        {%- endfor %}
+    </div>
+</section>
 
 </body>
 </html>
