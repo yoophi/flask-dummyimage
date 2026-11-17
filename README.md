@@ -4,8 +4,10 @@ Placeholder 이미지를 생성하는 Flask 확장입니다. 개발 및 디자�
 
 ## 요구사항
 
-- Python >= 3.9
+- Python >= 3.11
 - [uv](https://docs.astral.sh/uv/) (패키지 매니저)
+
+Pillow 13의 보안 수정 버전을 사용하기 위해 Python 3.11 이상이 필요합니다.
 
 ## 설치 및 실행
 
