@@ -11,6 +11,7 @@ Welcome to Flask-DummyImage's documentation!
    contributing
    authors
    history
+   security-maintenance
 
 Indices and tables
 ==================
